@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap%27");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --background: rgb(17 24 39);
+  --white: #fff;
+  --color-texto-drop: #a4a8ad;
+  --drop-color-svg: #00c7b6ff;
+  --color-box-item: #151a1e;
+  --color-drop-ring:#054861;
+  --sky: rgb(49, 202, 189);
+  --transition-3s: all 0.3s ease;
+  --transition-5s: all 0.5s ease;
+  --transition-8s: all 0.8s ease;
+  --font-1: "Roboto", sans-serif;
+  --font-2: "Roboto Condensed", sans-serif;
+}
+body {
+  color: var(--white);
+  font-family: var(--font-1);
+  min-height: 100vh;
+  min-width: 326px;
+  background-color: var(--background);
+}
+/*=============== UTILIDADES ===============*/
+.container {
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sky {
+  color: var(--sky);
+}
