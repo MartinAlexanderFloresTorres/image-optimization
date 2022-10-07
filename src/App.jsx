@@ -1,9 +1,10 @@
-import Resultado from "./components/resultado/Resultado";
+
+import Home from "./pages/Home";
 
 const App = () => {
   return (
     <div>
-      <Resultado />
+      <Home />
     </div>
   );
 };
