@@ -1,0 +1,103 @@
+* {
+  background-color: rgb(17 24 39);
+  margin: 20px auto;
+}
+.contenido_completo {
+  margin: 20px auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h3 {
+  margin: 10px auto;
+  width: 50%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  /* color: aliceblue; */
+  border: 3px solid white;
+}
+
+.tabla_button {
+  position: absolute;
+  top: 34px;
+  width: 50%;
+  border: 3px solid white;
+  color: white;
+}
+.cuadro_3botones {
+  position: absolute;
+  top: 96px;
+  color: white;
+  width: 50%;
+  border: 3px solid white;
+}
+.cuadro_ultimoBotones {
+  position: absolute;
+  color: white;
+  top: 225px;
+  width: 50%;
+  border: 3px solid white;
+}
+
+.cuadro_completo {
+  height: 20px;
+}
+.Entrada_QR {
+  column-gap: 10px;
+  row-gap: 10px;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  max-width: 400px;
+  margin-left: auto;
+  align-items: center;
+}
+
+.izquierda {
+  display: inline-block;
+  width: 350px;
+  margin: 0px 5px;
+  min-height: 40px;
+  border-right: 3px solid white;
+}
+.derecha {
+  display: inline-block;
+  width: auto;
+  margin: 0px 10px;
+}
+
+
+.btn_primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+    column-gap: 10px;
+    -webkit-column-gap: 10px;
+    color: #fff;
+    border: none;
+    min-height: 46px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to top, #2563eb, #60a5fa);
+    transition: all 0.3s ease;
+  }
+  button:active {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    transform: scale(0.95);
+  }
+  button:hover {
+    background-image: linear-gradient(to top, #2563eb, #2563eb);
+  }
