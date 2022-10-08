@@ -164,11 +164,11 @@
 }
 .drop-box-content p {
   font-size: 14px;
-  color: var(--color-texto-drop);
+  color: var(--color-parrafos);
 }
 .drop-box-content label {
   font-size: 16px;
-  color: var(--color-texto-drop);
+  color: var(--color-parrafos);
   margin-top: 10px;
   cursor: pointer;
   font-weight: 700;
@@ -176,7 +176,7 @@
   transition: var(--transition-3s);
 }
 .drop-box-content label:hover {
-  color: var(--white);
+  color: var(--drop-color-svg);
 }
 .drop-bottom {
   max-width: 600px;
@@ -189,7 +189,7 @@
 }
 .drop-bottom p {
   font-size: 16px;
-  color: var(--white);
+  color: var(--color-parrafos);
   line-height: 1.5;
 }
 @media (max-width: 1200px) {
