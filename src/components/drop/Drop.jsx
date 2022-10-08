@@ -1,9 +1,131 @@
+import { useEffect, useState } from "react";
 import "./drop.css";
 
 const Drop = () => {
+  const [drop, setDrop] = useState(false);
+  const [dropEnter, setDropEnter] = useState(false);
+
+  // Handle para capturar el archivo
+  const handleDrop = (e) => {
+    // Recorrer el archivo
+    for (let i = 0; i < e.dataTransfer.files.length; i++) {
+      console.log(e.dataTransfer.files[i]);
+    }
+    // Si es una carpeta
+    if (e.dataTransfer.items[0].webkitGetAsEntry().isDirectory) {
+      console.log("Es una carpeta");
+      // Obtener el contenido de la carpeta
+      const folder = e.dataTransfer.items[0].webkitGetAsEntry();
+      // Recorrer el contenido de la carpeta
+      folder.createReader().readEntries((entries) => {
+        // Recorrer los archivos
+        entries.forEach((entry) => {
+          // Si es un archivo
+          if (entry.isFile) {
+            // Obtener el archivo
+            entry.file((file) => {
+              console.log(file);
+            });
+          }
+        });
+      });
+    }
+
+    // Si es un archivo
+    if (e.dataTransfer.items[0].webkitGetAsEntry().isFile) {
+      console.log("Es un archivo");
+    }
+
+    // Si es una imagen
+    if (
+      e.dataTransfer.items[0].webkitGetAsEntry().isFile &&
+      e.dataTransfer.items[0].type.includes("image")
+    ) {
+      console.log("Es una imagen");
+    }
+
+    // Si es un video
+    if (
+      e.dataTransfer.items[0].webkitGetAsEntry().isFile &&
+      e.dataTransfer.items[0].type.includes("video")
+    ) {
+      console.log("Es un video");
+    }
+
+    // Si es un audio
+    if (
+      e.dataTransfer.items[0].webkitGetAsEntry().isFile &&
+      e.dataTransfer.items[0].type.includes("audio")
+    ) {
+      console.log("Es un audio");
+    }
+
+    // Si es un pdf
+    if (
+      e.dataTransfer.items[0].webkitGetAsEntry().isFile &&
+      e.dataTransfer.items[0].type.includes("pdf")
+    ) {
+      console.log("Es un pdf");
+    }
+
+    // Si es un zip
+    if (
+      e.dataTransfer.items[0].webkitGetAsEntry().isFile &&
+      e.dataTransfer.items[0].type.includes("zip")
+    ) {
+      console.log("Es un zip");
+
+      // Obtener el archivo del zip
+      const zip = e.dataTransfer.items[0].webkitGetAsEntry();
+      console.log(zip);
+    }
+
+    // Si es un rar
+    if (
+      e.dataTransfer.items[0].webkitGetAsEntry().isFile &&
+      e.dataTransfer.items[0].type.includes("rar")
+    ) {
+      console.log("Es un rar");
+
+      // Obtener el archivo del rar
+      const rar = e.dataTransfer.items[0].webkitGetAsEntry();
+      console.log(rar);
+
+      // Obtener el contenido del rar
+      rar.createReader().readEntries((entries) => {
+        // Recorrer los archivos
+        entries.forEach((entry) => {
+          // Si es un archivo
+          if (entry.isFile) {
+            // Obtener el archivo
+            entry.file((file) => {
+              console.log(file);
+            });
+          }
+        });
+      });
+    }
+  };
   return (
     <section className='drop-overflow'>
-      <section className='drop container'>
+      <section
+        className={`drop container ${drop ? "dragging" : ""} ${
+          dropEnter ? "active" : ""
+        }`}
+        onDragOver={(e) => {
+          e.preventDefault();
+          setDrop(true);
+        }}
+        onDragLeave={(e) => {
+          e.preventDefault();
+          setDrop(false);
+        }}
+        onDrop={(e) => {
+          e.preventDefault();
+          setDrop(false);
+          setDropEnter(false);
+        }}
+      >
         <section className='drop-bottom'>
           <h2>
             Arrastrar y soltar. <span className='sky'>Está en línea.</span>{" "}
@@ -18,7 +140,22 @@ const Drop = () => {
         <div className='drop-contenedor'>
           <div>
             <section className='drop-box-center'>
-              <div className='drop-box-item'>
+              <div
+                className='drop-box-item'
+                onDragOver={(e) => {
+                  e.preventDefault();
+                  setDropEnter(true);
+                }}
+                onDragLeave={(e) => {
+                  e.preventDefault();
+                  setDropEnter(false);
+                }}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  setDropEnter(false);
+                  handleDrop(e);
+                }}
+              >
                 <svg
                   className='drop-box-svg-circle'
                   xmlns='http://www.w3.org/2000/svg'
