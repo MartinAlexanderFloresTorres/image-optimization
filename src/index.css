@@ -16,6 +16,7 @@
   --color-box-item: #151a1e;
   --color-drop-ring: #054861;
   --sky: rgb(49, 202, 189);
+  --purple:#8781ee;
   --scroll-color: rgb(17, 27, 49);
   --scroll-color-item: rgb(26, 38, 61);
   --scroll-color-active: rgb(17, 32, 62);
@@ -29,13 +30,15 @@
 }
 html {
   color-scheme: dark;
+  scroll-behavior: smooth;
 }
 body {
   color: var(--color-text);
   font-family: var(--font-1);
-  min-height: 300vh;
   min-width: 326px;
   background-color: var(--background);
+  word-break: break-all;
+
 }
 /*=============== RESET ===============*/
 svg {
@@ -67,18 +70,6 @@ select {
 p {
   color: var(--color-parrafos);
 }
-/* ::-webkit-scrollbar {
-  width: 10px;
-  background: var(--background);
-  transition: var(--transition-3s);
-}
-::-webkit-scrollbar-thumb {
-  background: #151a1e;
-  transition: var(--transition-3s);
-}
-::-webkit-scrollbar-thumb:active{
-  background: var(--color-box);
-} */
 /*=============== UTILIDADES ===============*/
 .container {
   max-width: 1300px;
@@ -87,4 +78,15 @@ p {
 }
 .sky {
   color: var(--sky);
+}
+.scroll-1::-webkit-scrollbar{
+  width: 10px;
+  height: 5px;
+  background: var(--scroll-color);
+}
+.scroll-1::-webkit-scrollbar-thumb{
+  background: var(--scroll-color-item); 
+}
+.scroll-1::-webkit-scrollbar-thumb:active{
+  background: var(--scroll-color-active); 
 }
