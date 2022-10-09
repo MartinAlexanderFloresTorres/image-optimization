@@ -265,6 +265,73 @@ const Header = () => {
     setMenu(!menu);
     setHerramientas(false);
   };
+
+  // cambiar ícono de herramientas
+  
+
+  //cambiar ícono de menú
+  const openHerramientas = 
+    <svg
+      fill='none'
+      stroke='currentColor'
+      viewBox='0 0 24 24'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth={2}
+        d='M19 9l-7 7-7-7'
+      />
+    </svg>
+
+  const closeHerramientas = 
+    <svg
+      fill='none'
+      stroke='currentColor'
+      viewBox='0 0 24 24'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth={2}
+        d="M1,15 l8,-7 l8,7"
+      />
+    </svg>
+  
+  const openMenu = 
+    <svg
+      fill='none'
+      stroke='currentColor'
+      viewBox='0 0 24 24'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth={2}
+        d='M4 6h16M4 12h16M4 18h16'
+      />
+    </svg>
+  
+  const closeMenu = 
+    <svg
+      fill='none'
+      stroke='currentColor'
+      viewBox='0 0 24 24'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth={2}
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  
+
+
   return (
     <header className={`header ${herramientas || header ? "bg" : ""}`}>
       <section className='header__flex container'>
@@ -336,7 +403,7 @@ const Header = () => {
                 />
               </svg>
               <span>Toda las herramientas</span>
-              <svg
+              {/* <svg
                 fill='none'
                 stroke='currentColor'
                 viewBox='0 0 24 24'
@@ -348,13 +415,14 @@ const Header = () => {
                   strokeWidth={2}
                   d='M19 9l-7 7-7-7'
                 />
-              </svg>
+              </svg> */}
+              {herramientas ? closeHerramientas : openHerramientas}
+              
             </button>
 
             <section
-              className={`header__herramientas scroll-1 ${
-                herramientas ? "open" : ""
-              }`}
+              className={`header__herramientas scroll-1 ${herramientas ? "open" : ""
+                }`}
             >
               <div className='container'>
                 <ul>
@@ -761,7 +829,7 @@ const Header = () => {
           </a>
           <div className='header__cuenta'>
             <button onClick={handleMenu}>
-              <svg
+              {/* <svg
                 fill='none'
                 stroke='currentColor'
                 viewBox='0 0 24 24'
@@ -771,9 +839,11 @@ const Header = () => {
                   strokeLinecap='round'
                   strokeLinejoin='round'
                   strokeWidth={2}
-                  d='M4 6h16M4 12h16M4 18h16'
+                  // d='M4 6h16M4 12h16M4 18h16'
+                  d="M6 18L18 6M6 6l12 12"
                 />
-              </svg>
+              </svg> */}
+              {menu ? closeMenu : openMenu}
             </button>
             <div className={`header__cuentaOption ${menu ? "open" : ""}`}>
               <a href='#' className='d-flex p-item item'>
