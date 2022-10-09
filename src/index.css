@@ -1,92 +1,127 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap%27");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap%27');
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 :root {
-  --background: rgb(15 23 42);
-  --white: #fff;
-  --color-text: rgb(226 232 240);
-  --color-parrafos: rgb(158, 177, 205);
-  --color-texto-drop: #a4a8ad;
-  --drop-color-svg: #00c7b6ff;
-  --color-box: rgb(17, 27, 49);
-  --color-box-hover: rgb(22, 33, 59);
-  --color-box-item: #151a1e;
-  --color-drop-ring: #054861;
-  --sky: rgb(49, 202, 189);
-  --purple:#8781ee;
-  --scroll-color: rgb(17, 27, 49);
-  --scroll-color-item: rgb(26, 38, 61);
-  --scroll-color-active: rgb(17, 32, 62);
+	--background: rgb(15 23 42);
+	--white: #fff;
+	--color-text: rgb(226 232 240);
+	--color-parrafos: rgb(158, 177, 205);
+	--color-texto-drop: #a4a8ad;
+	--drop-color-svg: #00c7b6ff;
+	--color-box: rgb(17, 27, 49);
+	--color-box-hover: rgb(22, 33, 59);
+	--color-box-item: #151a1e;
+	--color-drop-ring: #054861;
+	--sky: rgb(49, 202, 189);
+	--purple: #8781ee;
+	--drop-color-svg-no-valid: #f34949;
+	--scroll-color: rgb(17, 27, 49);
+	--scroll-color-item: rgb(26, 38, 61);
+	--scroll-color-active: rgb(17, 32, 62);
 
-  --transition-3s: all 0.3s ease;
-  --transition-5s: all 0.5s ease;
-  --transition-8s: all 0.8s ease;
+	--transition-3s: all 0.3s ease;
+	--transition-5s: all 0.5s ease;
+	--transition-8s: all 0.8s ease;
 
-  --font-1: "Roboto", sans-serif;
-  --font-2: "Roboto Condensed", sans-serif;
+	--font-1: 'Roboto', sans-serif;
+	--font-2: 'Roboto Condensed', sans-serif;
 }
 html {
-  color-scheme: dark;
-  scroll-behavior: smooth;
+	color-scheme: dark;
+	scroll-behavior: smooth;
 }
 body {
-  color: var(--color-text);
-  font-family: var(--font-1);
-  min-width: 326px;
-  background-color: var(--background);
-  word-break: break-all;
-
+	color: var(--color-text);
+	font-family: var(--font-1);
+	min-width: 326px;
+	background-color: var(--background);
+	word-break: break-all;
 }
 /*=============== RESET ===============*/
 svg {
-  width: 25px;
-  height: 25px;
-  min-width: 25px;
-  min-height: 25px;
+	width: 25px;
+	height: 25px;
+	min-width: 25px;
+	min-height: 25px;
 }
 li {
-  list-style: none;
+	list-style: none;
 }
 a {
-  text-decoration: none;
-  color: currentColor;
+	text-decoration: none;
+	color: currentColor;
 }
 button {
-  border: none;
-  outline: none;
-  cursor: pointer;
-  background: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background: transparent;
 }
 input,
 textarea,
 select {
-  outline: none;
-  border: none;
-  background: transparent;
+	outline: none;
+	border: none;
+	background: transparent;
 }
 p {
-  color: var(--color-parrafos);
+	color: var(--color-parrafos);
 }
 /*=============== UTILIDADES ===============*/
 .container {
-  max-width: 1300px;
-  margin-left: auto;
-  margin-right: auto;
+	max-width: 1300px;
+	margin-left: auto;
+	margin-right: auto;
 }
 .sky {
-  color: var(--sky);
+	color: var(--sky);
 }
-.scroll-1::-webkit-scrollbar{
-  width: 10px;
-  height: 5px;
-  background: var(--scroll-color);
+.scroll-1::-webkit-scrollbar {
+	width: 10px;
+	height: 5px;
+	background: var(--scroll-color);
 }
-.scroll-1::-webkit-scrollbar-thumb{
-  background: var(--scroll-color-item); 
+.scroll-1::-webkit-scrollbar-thumb {
+	background: var(--scroll-color-item);
 }
-.scroll-1::-webkit-scrollbar-thumb:active{
-  background: var(--scroll-color-active); 
+.scroll-1::-webkit-scrollbar-thumb:active {
+	background: var(--scroll-color-active);
+}
+/*=============== CLASES TOAST ===============*/
+.go2072408551 {
+	background: currentColor;
+	background: var(--color-box-item);
+	border: 1px solid var(--color-box-hover);
+}
+.toast-warning {
+	font-size: 14px;
+}
+.btn-error {
+	float: right;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	column-gap: 10px;
+	-webkit-column-gap: 10px;
+	color: var(--white);
+	background: var(--color-box-item);
+	padding: 10px;
+	border-radius: 5px;
+	margin-left: auto;
+	font-size: 14px;
+	font-weight: 400;
+	border: 1px solid var(--color-box-hover);
+	transition: var(--transition-3s);
+	min-width: fit-content;
+}
+.toast-warning p {
+	margin-bottom: 10px;
+	color: var(--drop-color-svg-no-valid);
+	font-size: 14px;
+}
+.btn-error:hover {
+	background: var(--color-box-hover);
 }
