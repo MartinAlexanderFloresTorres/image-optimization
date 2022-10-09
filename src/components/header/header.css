@@ -38,6 +38,12 @@
 .header__center {
 	width: 100%;
 }
+#btn-herramientas svg {
+	transition: var(--transition-3s);
+}
+#btn-herramientas svg.svg-rotar {
+	transform: rotate(180deg);
+}
 .header__herramientas {
 	position: fixed;
 	top: 76px;
@@ -88,9 +94,6 @@
 .header__herramientas .container ul li a:hover {
 	background: var(--color-drop-ring);
 }
-/* .header__cuenta {
-  display: none;
-} */
 .header__cuenta {
 	display: block;
 	position: relative;

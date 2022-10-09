@@ -6,6 +6,9 @@
 }
 :root {
 	--background: rgb(15 23 42);
+	--color-toast: rgb(23, 33, 56);
+	--btn-toast: rgb(31, 45, 78);
+	--btn-toast-hover: rgb(36, 51, 84);
 	--white: #fff;
 	--color-text: rgb(226 232 240);
 	--color-parrafos: rgb(158, 177, 205);
@@ -93,7 +96,7 @@ p {
 /*=============== CLASES TOAST ===============*/
 .go2072408551 {
 	background: currentColor;
-	background: var(--color-box-item);
+	background: var(--color-toast);
 	border: 1px solid var(--color-box-hover);
 }
 .toast-warning {
@@ -107,7 +110,7 @@ p {
 	column-gap: 10px;
 	-webkit-column-gap: 10px;
 	color: var(--white);
-	background: var(--color-box-item);
+	background: var(--btn-toast);
 	padding: 10px;
 	border-radius: 5px;
 	margin-left: auto;
@@ -123,5 +126,5 @@ p {
 	font-size: 14px;
 }
 .btn-error:hover {
-	background: var(--color-box-hover);
+	background: var(--btn-toast-hover);
 }
