@@ -1,17 +1,18 @@
 # image-optimization
+
 ![Captura de pantalla (436)](https://user-images.githubusercontent.com/91045865/194688044-3033f272-b524-4298-a964-7492c1b83ccd.png)
 
 ## <p align="center">Proyecto para optimizar imágenes creado con React</p>
 
 ```javascript
 const image = {
-    index: "hello word",
+	index: 'hello word',
 };
 ```
 
 ### 🛠️ Variables de entorno:
-VITE_URL=""
 
+VITE_URL=""
 
 ### 🔔 Mis Redes Sociales:
 

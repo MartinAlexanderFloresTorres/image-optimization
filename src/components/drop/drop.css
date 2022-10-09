@@ -1,249 +1,258 @@
 /*=============== DR0P ===============*/
 .drop-overflow {
-  overflow: hidden;
+	overflow: hidden;
 }
 .drop {
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  column-gap: 30px;
-  -webkit-column-gap: 30px;
-  row-gap: 30px;
-  min-height: 100vh;
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	column-gap: 30px;
+	-webkit-column-gap: 30px;
+	row-gap: 30px;
+	min-height: 100vh;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
 }
 .drop input {
-  display: none;
+	display: none;
 }
 .drop-contenedor {
-  position: relative;
+	position: relative;
 }
 .drop-ring {
-  height: 80%;
-  width: 80%;
-  aspect-ratio: 1;
-  display: block;
-  height: 200%;
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  width: 200%;
-  z-index: -2;
-  opacity: 0.6;
-  transform: translate(-50%, -50%) scale(1.5);
-  transition: var(--transition-3s);
+	height: 80%;
+	width: 80%;
+	aspect-ratio: 1;
+	display: block;
+	height: 200%;
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	width: 200%;
+	z-index: -2;
+	opacity: 0.6;
+	transform: translate(-50%, -50%) scale(1.5);
+	transition: var(--transition-3s);
 }
 .drop-ring:before {
-  background-color: var(--color-drop-ring);
-  border-radius: 50%;
-  content: "";
-  display: block;
-  height: 100%;
-  opacity: 0.2;
-  position: absolute;
-  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
-  width: 100%;
+	background-color: var(--color-drop-ring);
+	border-radius: 50%;
+	content: '';
+	display: block;
+	height: 100%;
+	opacity: 0.2;
+	position: absolute;
+	transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+	width: 100%;
 }
 .drop-ring:nth-of-type(2) {
-  opacity: 0.7;
-  transform: translate(-50%, -50%) scale(1);
+	opacity: 0.7;
+	transform: translate(-50%, -50%) scale(1);
 }
 .drop-ring:nth-of-type(3) {
-  opacity: 0.5;
-  transform: translate(-50%, -50%) scale(2);
+	opacity: 0.5;
+	transform: translate(-50%, -50%) scale(2);
 }
 .drop.drop.dragging .drop-ring {
-  transform: translate(-50%, -50%) scale(1.8);
+	transform: translate(-50%, -50%) scale(1.8);
 }
 .drop.dragging .drop-ring:nth-of-type(2) {
-  opacity: 0.7;
-  transform: translate(-50%, -50%) scale(1.2);
+	opacity: 0.7;
+	transform: translate(-50%, -50%) scale(1.2);
 }
 .drop.dragging .drop-ring:nth-of-type(3) {
-  opacity: 0.7;
-  transform: translate(-50%, -50%) scale(2.2);
+	opacity: 0.7;
+	transform: translate(-50%, -50%) scale(2.2);
 }
 .drop-box-center {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 .drop-box-item {
-  background: var(--color-box-item);
-  border-radius: 50%;
-  width: 270px;
-  height: 270px;
-  padding: 20px;
-  position: relative;
-  z-index: 1;
+	background: var(--color-box-item);
+	border-radius: 50%;
+	width: 270px;
+	height: 270px;
+	padding: 20px;
+	position: relative;
+	z-index: 1;
 }
 .drop.active .drop-box-item::after {
-  opacity: 1;
-  visibility: visible;
+	opacity: 1;
+	visibility: visible;
 }
 .drop-box-item::after {
-  content: "Déjalo caer";
-  position: absolute;
-  background: var(--drop-color-svg);
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 500;
-  font-size: 700;
-  font-size: 32px;
-  border-radius: 50%;
-  transition: var(--transition-3s);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+	content: 'Déjalo caer';
+	position: absolute;
+	background: var(--drop-color-svg);
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 500;
+	font-size: 700;
+	font-size: 32px;
+	border-radius: 50%;
+	transition: var(--transition-3s);
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
 }
-
+.drop.no-valid .drop-box-item::after {
+	opacity: 1;
+	visibility: visible;
+	content: 'Archivo no válido';
+	background: var(--drop-color-svg-no-valid);
+}
+.drop.no-valid .drop-box-svg-circle rect {
+	stroke: var(--drop-color-svg-no-valid);
+}
 .drop-box-svg-circle {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border-radius: 50%;
-  animation: rotar 20s linear infinite;
-  z-index: -1;
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	border-radius: 50%;
+	animation: rotar 20s linear infinite;
+	z-index: -1;
+	pointer-events: none;
 }
 @keyframes rotar {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  50% {
-    transform: translate(-50%, -50%) rotate(180deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+	0% {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	50% {
+		transform: translate(-50%, -50%) rotate(180deg);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
 }
 .drop-box-content {
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 .drop-box-content svg {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 20px;
+	width: 80px;
+	height: 80px;
+	margin-bottom: 20px;
 }
 .drop.dragging .drop-box-content svg {
-  animation: dragging 0.2s ease-in-out infinite;
+	animation: dragging 0.2s ease-in-out infinite;
 }
 @keyframes dragging {
-  0% {
-    transform: rotate(-5deg);
-  }
+	0% {
+		transform: rotate(-5deg);
+	}
 
-  50% {
-    transform: rotate(5deg);
-  }
+	50% {
+		transform: rotate(5deg);
+	}
 }
 .drop-box-content h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-weight: 400;
-  line-height: 1.2;
+	font-size: 18px;
+	margin-bottom: 10px;
+	font-weight: 400;
+	line-height: 1.2;
 }
 .drop-box-content p {
-  font-size: 14px;
-  color: var(--color-parrafos);
+	font-size: 14px;
+	color: var(--color-parrafos);
 }
 .drop-box-content label {
-  font-size: 16px;
-  color: var(--color-parrafos);
-  margin-top: 10px;
-  cursor: pointer;
-  font-weight: 700;
-  text-decoration: underline;
-  transition: var(--transition-3s);
+	font-size: 16px;
+	color: var(--color-parrafos);
+	margin-top: 10px;
+	cursor: pointer;
+	font-weight: 700;
+	text-decoration: underline;
+	transition: var(--transition-3s);
 }
 .drop-box-content label:hover {
-  color: var(--drop-color-svg);
+	color: var(--drop-color-svg);
 }
 .drop-bottom {
-  max-width: 600px;
-  padding: 20px;
+	max-width: 600px;
+	padding: 20px;
 }
 .drop-bottom h2 {
-  font-size: 38px;
-  margin-bottom: 16px;
-  font-weight: 700;
+	font-size: 38px;
+	margin-bottom: 16px;
+	font-weight: 700;
 }
 .drop-bottom p {
-  font-size: 16px;
-  color: var(--color-parrafos);
-  line-height: 1.5;
+	font-size: 16px;
+	color: var(--color-parrafos);
+	line-height: 1.5;
 }
 @media (max-width: 1200px) {
-  .drop-bottom {
-    max-width: 580px;
-  }
+	.drop-bottom {
+		max-width: 580px;
+	}
 }
 @media (max-width: 1000px) {
-  .drop {
-    height: fit-content;
-    flex-direction: column;
-    row-gap: 100px;
-    justify-content: flex-start;
-    padding-top: 50px;
-  }
-  .drop-bottom h2 {
-    font-size: 38px;
-  }
-  .drop-bottom p {
-    font-size: 16px;
-  }
-  .drop-ring {
-    transform: translate(-50%, -50%) scale(1.3);
-  }
-  .drop-ring:nth-of-type(2) {
-    opacity: 0.7;
-    transform: translate(-50%, -50%) scale(0.76);
-  }
-  .drop-ring:nth-of-type(3) {
-    opacity: 0.5;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  .drop.drop.dragging .drop-ring {
-    transform: translate(-50%, -50%) scale(1.5);
-  }
-  .drop.dragging .drop-ring:nth-of-type(2) {
-    opacity: 0.7;
-    transform: translate(-50%, -50%) scale(0.9);
-  }
-  .drop.dragging .drop-ring:nth-of-type(3) {
-    opacity: 0.7;
-    transform: translate(-50%, -50%) scale(1.2);
-  }
+	.drop {
+		height: fit-content;
+		flex-direction: column;
+		row-gap: 100px;
+		justify-content: flex-start;
+		padding-top: 50px;
+	}
+	.drop-bottom h2 {
+		font-size: 38px;
+	}
+	.drop-bottom p {
+		font-size: 16px;
+	}
+	.drop-ring {
+		transform: translate(-50%, -50%) scale(1.3);
+	}
+	.drop-ring:nth-of-type(2) {
+		opacity: 0.7;
+		transform: translate(-50%, -50%) scale(0.76);
+	}
+	.drop-ring:nth-of-type(3) {
+		opacity: 0.5;
+		transform: translate(-50%, -50%) scale(1);
+	}
+	.drop.drop.dragging .drop-ring {
+		transform: translate(-50%, -50%) scale(1.5);
+	}
+	.drop.dragging .drop-ring:nth-of-type(2) {
+		opacity: 0.7;
+		transform: translate(-50%, -50%) scale(0.9);
+	}
+	.drop.dragging .drop-ring:nth-of-type(3) {
+		opacity: 0.7;
+		transform: translate(-50%, -50%) scale(1.2);
+	}
 }
 @media (max-width: 780px) {
-  .drop-bottom h2 .sky{
-    display: block;
-  }
-  .drop-bottom p {
-    font-size: 14px;
-  }
+	.drop-bottom h2 .sky {
+		display: block;
+	}
+	.drop-bottom p {
+		font-size: 14px;
+	}
 }
 @media (max-width: 400px) {
-  .drop-bottom h2 {
-    font-size: 36px;
-  }
+	.drop-bottom h2 {
+		font-size: 36px;
+	}
 }
