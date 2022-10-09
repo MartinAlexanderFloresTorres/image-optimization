@@ -95,9 +95,8 @@ p {
 }
 /*=============== CLASES TOAST ===============*/
 .go2072408551 {
-	background: currentColor;
-	background: var(--color-toast);
-	border: 1px solid var(--color-box-hover);
+	background: var(--color-toast) !important;
+	border: 1px solid var(--color-box-hover) !important;
 }
 .toast-warning {
 	font-size: 14px;
