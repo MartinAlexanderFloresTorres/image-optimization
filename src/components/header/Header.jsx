@@ -118,7 +118,7 @@ const Header = () => {
 					<section className='header__center'>
 						<button
 							id='btn-herramientas'
-							className='d-flex p-item'
+							className='d-flex p-header__item'
 							onClick={handleHerramientas}
 						>
 							<svg
@@ -159,10 +159,10 @@ const Header = () => {
 							<div className='container'>
 								<ul>
 									<li>
-										<h2 className='p-item'>Conversor</h2>
+										<h2 className='p-header__item'>Conversor</h2>
 									</li>
 									<li>
-										<a href='#' className='d-flex p-item'>
+										<a href='#' className='d-flex p-header__item'>
 											<svg
 												fill='none'
 												stroke='currentColor'
@@ -180,7 +180,7 @@ const Header = () => {
 										</a>
 									</li>
 									<li>
-										<a href='#' className='d-flex p-item'>
+										<a href='#' className='d-flex p-header__item'>
 											<svg
 												fill='none'
 												stroke='currentColor'
@@ -198,7 +198,7 @@ const Header = () => {
 										</a>
 									</li>
 									<li>
-										<a href='#' className='d-flex p-item'>
+										<a href='#' className='d-flex p-header__item'>
 											<svg
 												fill='none'
 												stroke='currentColor'
@@ -216,7 +216,7 @@ const Header = () => {
 										</a>
 									</li>
 									<li>
-										<a href='#' className='d-flex p-item'>
+										<a href='#' className='d-flex p-header__item'>
 											<svg
 												fill='none'
 												stroke='currentColor'
@@ -234,102 +234,7 @@ const Header = () => {
 										</a>
 									</li>
 									<li>
-										<a href='#' className='d-flex p-item'>
-											<svg
-												fill='none'
-												stroke='currentColor'
-												viewBox='0 0 24 24'
-												xmlns='http://www.w3.org/2000/svg'
-											>
-												<path
-													strokeLinecap='round'
-													strokeLinejoin='round'
-													strokeWidth={2}
-													d='M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z'
-												/>
-											</svg>
-											<span>Convertir imagen a webP</span>
-										</a>
-									</li>
-								</ul>
-								<ul>
-									<li>
-										<h2 className='p-item'>Conversor</h2>
-									</li>
-									<li>
-										<a href='#' className='d-flex p-item'>
-											<svg
-												fill='none'
-												stroke='currentColor'
-												viewBox='0 0 24 24'
-												xmlns='http://www.w3.org/2000/svg'
-											>
-												<path
-													strokeLinecap='round'
-													strokeLinejoin='round'
-													strokeWidth={2}
-													d='M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z'
-												/>
-											</svg>
-											<span>Convertir imagen a webP</span>
-										</a>
-									</li>
-									<li>
-										<a href='#' className='d-flex p-item'>
-											<svg
-												fill='none'
-												stroke='currentColor'
-												viewBox='0 0 24 24'
-												xmlns='http://www.w3.org/2000/svg'
-											>
-												<path
-													strokeLinecap='round'
-													strokeLinejoin='round'
-													strokeWidth={2}
-													d='M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z'
-												/>
-											</svg>
-											<span>Convertir imagen a webP</span>
-										</a>
-									</li>
-									<li>
-										<a href='#' className='d-flex p-item'>
-											<svg
-												fill='none'
-												stroke='currentColor'
-												viewBox='0 0 24 24'
-												xmlns='http://www.w3.org/2000/svg'
-											>
-												<path
-													strokeLinecap='round'
-													strokeLinejoin='round'
-													strokeWidth={2}
-													d='M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z'
-												/>
-											</svg>
-											<span>Convertir imagen a webP</span>
-										</a>
-									</li>
-									<li>
-										<a href='#' className='d-flex p-item'>
-											<svg
-												fill='none'
-												stroke='currentColor'
-												viewBox='0 0 24 24'
-												xmlns='http://www.w3.org/2000/svg'
-											>
-												<path
-													strokeLinecap='round'
-													strokeLinejoin='round'
-													strokeWidth={2}
-													d='M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z'
-												/>
-											</svg>
-											<span>Convertir imagen a webP</span>
-										</a>
-									</li>
-									<li>
-										<a href='#' className='d-flex p-item'>
+										<a href='#' className='d-flex p-header__item'>
 											<svg
 												fill='none'
 												stroke='currentColor'
@@ -349,10 +254,10 @@ const Header = () => {
 								</ul>
 								<ul>
 									<li>
-										<h2 className='p-item'>Conversor</h2>
+										<h2 className='p-header__item'>Conversor</h2>
 									</li>
 									<li>
-										<a href='#' className='d-flex p-item'>
+										<a href='#' className='d-flex p-header__item'>
 											<svg
 												fill='none'
 												stroke='currentColor'
@@ -370,7 +275,7 @@ const Header = () => {
 										</a>
 									</li>
 									<li>
-										<a href='#' className='d-flex p-item'>
+										<a href='#' className='d-flex p-header__item'>
 											<svg
 												fill='none'
 												stroke='currentColor'
@@ -388,7 +293,7 @@ const Header = () => {
 										</a>
 									</li>
 									<li>
-										<a href='#' className='d-flex p-item'>
+										<a href='#' className='d-flex p-header__item'>
 											<svg
 												fill='none'
 												stroke='currentColor'
@@ -406,7 +311,7 @@ const Header = () => {
 										</a>
 									</li>
 									<li>
-										<a href='#' className='d-flex p-item'>
+										<a href='#' className='d-flex p-header__item'>
 											<svg
 												fill='none'
 												stroke='currentColor'
@@ -424,7 +329,7 @@ const Header = () => {
 										</a>
 									</li>
 									<li>
-										<a href='#' className='d-flex p-item'>
+										<a href='#' className='d-flex p-header__item'>
 											<svg
 												fill='none'
 												stroke='currentColor'
@@ -444,10 +349,10 @@ const Header = () => {
 								</ul>
 								<ul>
 									<li>
-										<h2 className='p-item'>Conversor</h2>
+										<h2 className='p-header__item'>Conversor</h2>
 									</li>
 									<li>
-										<a href='#' className='d-flex p-item'>
+										<a href='#' className='d-flex p-header__item'>
 											<svg
 												fill='none'
 												stroke='currentColor'
@@ -465,7 +370,7 @@ const Header = () => {
 										</a>
 									</li>
 									<li>
-										<a href='#' className='d-flex p-item'>
+										<a href='#' className='d-flex p-header__item'>
 											<svg
 												fill='none'
 												stroke='currentColor'
@@ -483,7 +388,7 @@ const Header = () => {
 										</a>
 									</li>
 									<li>
-										<a href='#' className='d-flex p-item'>
+										<a href='#' className='d-flex p-header__item'>
 											<svg
 												fill='none'
 												stroke='currentColor'
@@ -501,7 +406,7 @@ const Header = () => {
 										</a>
 									</li>
 									<li>
-										<a href='#' className='d-flex p-item'>
+										<a href='#' className='d-flex p-header__item'>
 											<svg
 												fill='none'
 												stroke='currentColor'
@@ -519,7 +424,102 @@ const Header = () => {
 										</a>
 									</li>
 									<li>
-										<a href='#' className='d-flex p-item'>
+										<a href='#' className='d-flex p-header__item'>
+											<svg
+												fill='none'
+												stroke='currentColor'
+												viewBox='0 0 24 24'
+												xmlns='http://www.w3.org/2000/svg'
+											>
+												<path
+													strokeLinecap='round'
+													strokeLinejoin='round'
+													strokeWidth={2}
+													d='M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z'
+												/>
+											</svg>
+											<span>Convertir imagen a webP</span>
+										</a>
+									</li>
+								</ul>
+								<ul>
+									<li>
+										<h2 className='p-header__item'>Conversor</h2>
+									</li>
+									<li>
+										<a href='#' className='d-flex p-header__item'>
+											<svg
+												fill='none'
+												stroke='currentColor'
+												viewBox='0 0 24 24'
+												xmlns='http://www.w3.org/2000/svg'
+											>
+												<path
+													strokeLinecap='round'
+													strokeLinejoin='round'
+													strokeWidth={2}
+													d='M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z'
+												/>
+											</svg>
+											<span>Convertir imagen a webP</span>
+										</a>
+									</li>
+									<li>
+										<a href='#' className='d-flex p-header__item'>
+											<svg
+												fill='none'
+												stroke='currentColor'
+												viewBox='0 0 24 24'
+												xmlns='http://www.w3.org/2000/svg'
+											>
+												<path
+													strokeLinecap='round'
+													strokeLinejoin='round'
+													strokeWidth={2}
+													d='M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z'
+												/>
+											</svg>
+											<span>Convertir imagen a webP</span>
+										</a>
+									</li>
+									<li>
+										<a href='#' className='d-flex p-header__item'>
+											<svg
+												fill='none'
+												stroke='currentColor'
+												viewBox='0 0 24 24'
+												xmlns='http://www.w3.org/2000/svg'
+											>
+												<path
+													strokeLinecap='round'
+													strokeLinejoin='round'
+													strokeWidth={2}
+													d='M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z'
+												/>
+											</svg>
+											<span>Convertir imagen a webP</span>
+										</a>
+									</li>
+									<li>
+										<a href='#' className='d-flex p-header__item'>
+											<svg
+												fill='none'
+												stroke='currentColor'
+												viewBox='0 0 24 24'
+												xmlns='http://www.w3.org/2000/svg'
+											>
+												<path
+													strokeLinecap='round'
+													strokeLinejoin='round'
+													strokeWidth={2}
+													d='M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z'
+												/>
+											</svg>
+											<span>Convertir imagen a webP</span>
+										</a>
+									</li>
+									<li>
+										<a href='#' className='d-flex p-header__item'>
 											<svg
 												fill='none'
 												stroke='currentColor'
@@ -543,7 +543,7 @@ const Header = () => {
 				</div>
 
 				<div className='header__right d-flex'>
-					<a href='#' id='login' className='d-flex p-item'>
+					<a href='#' id='login' className='d-flex p-header__item'>
 						<svg
 							fill='none'
 							stroke='currentColor'
@@ -578,7 +578,7 @@ const Header = () => {
 							{menu ? closeMenu : openMenu}
 						</button>
 						<div className={`header__cuentaOption ${menu ? 'open' : ''}`}>
-							<a href='#' className='d-flex p-item item'>
+							<a href='#' className='d-flex p-item header__item'>
 								<svg
 									fill='none'
 									stroke='currentColor'
@@ -598,7 +598,7 @@ const Header = () => {
 								</div>
 							</a>
 
-							<a href='#' className='d-flex p-item item'>
+							<a href='#' className='d-flex p-item header__item'>
 								<svg
 									fill='none'
 									stroke='currentColor'
@@ -621,7 +621,7 @@ const Header = () => {
 								<span>Configuración</span>
 							</a>
 
-							<a href='#' className='d-flex p-item item'>
+							<a href='#' className='d-flex p-item header__item'>
 								<svg
 									fill='none'
 									stroke='currentColor'
@@ -638,7 +638,7 @@ const Header = () => {
 								<span>Iniciar Sesión</span>
 							</a>
 
-							<button className='d-flex p-item item'>
+							<button className='d-flex p-item header__item'>
 								<svg
 									fill='none'
 									stroke='currentColor'
