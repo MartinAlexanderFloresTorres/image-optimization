@@ -5,11 +5,11 @@
 	box-sizing: border-box;
 }
 :root {
+	--white: #fff;
 	--background: rgb(15 23 42);
 	--color-toast: rgb(23, 33, 56);
 	--btn-toast: rgb(31, 45, 78);
 	--btn-toast-hover: rgb(36, 51, 84);
-	--white: #fff;
 	--color-text: rgb(226 232 240);
 	--color-parrafos: rgb(158, 177, 205);
 	--color-texto-drop: #a4a8ad;
@@ -24,7 +24,7 @@
 	--scroll-color: rgb(17, 27, 49);
 	--scroll-color-item: rgb(26, 38, 61);
 	--scroll-color-active: rgb(17, 32, 62);
-
+	--border-color-1: rgb(17, 32, 62);
 	--transition-3s: all 0.3s ease;
 	--transition-5s: all 0.5s ease;
 	--transition-8s: all 0.8s ease;
@@ -93,6 +93,47 @@ p {
 .scroll-1::-webkit-scrollbar-thumb:active {
 	background: var(--scroll-color-active);
 }
+.p-item {
+	padding: 10px;
+}
+.d-flex {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	column-gap: 10px;
+	-webkit-column-gap: 10px;
+	row-gap: 10px;
+}
+.btn_primary {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	row-gap: 10px;
+	column-gap: 10px;
+	-webkit-column-gap: 10px;
+	color: #fff;
+	border: none;
+	min-height: 46px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 5px;
+	font-size: 16px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	cursor: pointer;
+	text-align: center;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+	background: linear-gradient(to top, #2563eb, #60a5fa);
+	transition: var(--transition-3s);
+}
+.btn_primary:active {
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+	transform: scale(0.95);
+}
+.btn_primary:hover {
+	background: linear-gradient(to top, #2563eb, #2563eb);
+}
+
 /*=============== CLASES TOAST ===============*/
 .go2072408551 {
 	background: var(--color-toast) !important;

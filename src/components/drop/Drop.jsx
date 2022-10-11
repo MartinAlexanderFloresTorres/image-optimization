@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
+import generarId from '../../helpers/generarId';
 import useImages from '../../hooks/useImages';
 import './drop.css';
 
@@ -38,65 +39,85 @@ const Drop = () => {
 		);
 	};
 
+	// Function que agregara la imagen al state
+	const addImageState = (file) => {
+		file.id = generarId(); // Generar un id
+		file.url = URL.createObjectURL(file); // generar una url
+		addImage(file); // Agregar la imagen
+	};
+
+	// Function que recorre los folders
+	const iterableFolder = (entry) => {
+		entry.createReader().readEntries((entries) => {
+			// Recorrer los archivos
+			entries.forEach((entry) => {
+				// Si es un archivo file
+				if (entry.isFile) {
+					// Obtener el archivo
+					entry.file((file) => {
+						// Si es una imagen
+						if (file.type.includes('image')) {
+							addImageState(file);
+						} else {
+							// Mostrar mensaje de warning
+							warning(`El archivo no fue valido ${file.name}`);
+						}
+					});
+				}
+				// si es un directorio
+				else if (entry.isDirectory) {
+					iterableFolder(entry);
+				} else {
+					// Mostrar mensaje de warning
+					warning(`El archivo no fue valido ${entry.name}`);
+				}
+			});
+		});
+	};
+
 	// Handle para capturar el archivo
 	const handleDrop = async (e) => {
+		const { files } = e.dataTransfer;
 		const items = e.dataTransfer.items[0];
+
 		// Si no es un file mostramos un mensaje
-		if (
-			items.kind === 'string' ||
-			!items.kind === 'file' ||
-			items.type === 'application/zip' ||
-			items.type === 'application/x-zip-compressed' ||
-			items.getAsFile().name.includes('.rar') ||
-			items.getAsFile().name.includes('.zip')
-		) {
+		if (items.kind === 'string' || items.kind !== 'file') {
 			warning('Solo se permiten imagenes o carpetas.');
 			return;
 		}
 
-		// Si es una imagen
-		if (items.webkitGetAsEntry().isFile && items.type.includes('image')) {
-			console.log('Es una imagen');
-			// Obtener el archivo cada imagen
-			for (let i = 0; i < e.dataTransfer.items.length; i++) {
-				const file = e.dataTransfer.items[i].getAsFile();
-				// Agregar el archivo
-				addImage(file);
+		// Recorrer los files
+		for (let i = 0; i < files.length; i++) {
+			const file = files[i];
+			// si es una imagen
+			if (file.type.includes('image')) {
+				addImageState(file);
+			} else if (items.webkitGetAsEntry().isDirectory) {
+				// Recorrer la carpeta
+				iterableFolder(items.webkitGetAsEntry());
+			} else {
+				// mostrar mensaje de warning
+				warning('Solo se permiten imagenes o carpetas.');
+				setNoValid(true);
 			}
-			return;
 		}
+	};
 
-		// Si es una carpeta
-		if (items.webkitGetAsEntry().isDirectory) {
-			console.log('Es una carpeta');
-			// Obtener el contenido de la carpeta
-			const folder = items.webkitGetAsEntry();
-			// Recorrer el contenido de la carpeta
-			folder.createReader().readEntries((entries) => {
-				// Recorrer los archivos
-				entries.forEach((entry) => {
-					// Si es un archivo
-					if (entry.isFile) {
-						// Obtener el archivo
-						entry.file((file) => {
-							// Si es una imagen
-							if (file.type.includes('image')) {
-								// Agregar el archivo
-								addImage(file);
-							} else {
-								// Mostrar mensaje de warning
-								warning(`El archivo no fue valido ${file.name}`);
-							}
-						});
-					}
-				});
-			});
-			return;
+	// Handle input file
+	const handleInput = (e) => {
+		const { files } = e.target;
+		// Recorrer los files
+		for (let i = 0; i < files.length; i++) {
+			const file = files[i];
+			// si es una imagen
+			if (file.type.includes('image')) {
+				addImageState(file);
+			} else {
+				// mostrar mensaje de warning
+				warning('Solo se permiten imagenes.');
+				setNoValid(true);
+			}
 		}
-
-		// mostrar mensaje de warning
-		warning('Solo se permiten imagenes o carpetas.');
-		setNoValid(true);
 	};
 	return (
 		<section className='drop-overflow'>
@@ -215,9 +236,10 @@ const Drop = () => {
 											<input
 												type='file'
 												multiple
-												accept='image/jpg,image/webp,image/png,image/avif'
+												accept='image/jpg,,image/jpeg,image/webp,image/png,image/avif,image/svg+xml'
 												id='file'
 												name='file'
+												onChange={handleInput}
 											/>{' '}
 											navegue para carga
 										</label>
