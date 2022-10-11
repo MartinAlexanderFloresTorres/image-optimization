@@ -1,21 +1,24 @@
 import { useState } from 'react';
+import Compressor from 'compressorjs';
+import toast from 'react-hot-toast';
 import useImages from '../../hooks/useImages';
 import Item from './Item';
-import Compressor from 'compressorjs';
 import './lista.css';
+
+const defaulState = {
+	quality: 0.8,
+	width: '',
+	height: '',
+	resize: 'none',
+	mimeType: 'image/webp',
+};
 
 const Lista = () => {
 	// Estados
-	const [ajuste, setAjuste] = useState({
-		quality: 0.8,
-		width: '',
-		height: '',
-		resize: 'none',
-		mimeType: 'image/jpg',
-	});
+	const [ajuste, setAjuste] = useState(defaulState);
 
 	// useImagenes
-	const { images } = useImages();
+	const { images, clearImages } = useImages();
 
 	// llenar la configuracion
 	const handleConfig = (e) => {
@@ -59,6 +62,14 @@ const Lista = () => {
 						await download(url, result.name);
 						URL.revokeObjectURL(url);
 					})();
+
+					// Resert las imagenes
+					clearImages();
+					// Resetear el ajuste
+					setAjuste(defaulState);
+
+					// Mostrar mensaje
+					toast.success('Imagenes optimizadas con exito');
 				},
 				error(e) {
 					console.log(e.message);
@@ -147,10 +158,16 @@ const Lista = () => {
 									calidad, mayor tamaño de archivo. Una calidad menor reducirá
 									el tamaño de archivo.
 								</p>
-								<div className='calidad__indices d-flex'>
-									<span>Calidad mala</span>
-									<span>Calidad óptima</span>
-									<span>Calidad completa</span>
+								<div className='calidad__indices'>
+									<span>
+										<span className='calidad__hidden'>Calidad</span> mala
+									</span>
+									<span>
+										<span className='calidad__hidden'>Calidad</span> óptima
+									</span>
+									<span>
+										<span className='calidad__hidden'>Calidad</span> completa
+									</span>
 								</div>
 								<input
 									name='quality'
@@ -350,7 +367,7 @@ const Lista = () => {
 										<span>jpeg</span>
 									</label>
 
-									<label htmlFor='image/avif'>
+									{/* 									<label htmlFor='image/avif'>
 										<div>
 											<input
 												type='radio'
@@ -362,7 +379,7 @@ const Lista = () => {
 											/>
 										</div>
 										<span>avif</span>
-									</label>
+									</label> */}
 
 									<label htmlFor='image/png'>
 										<div>
