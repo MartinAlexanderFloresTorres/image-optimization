@@ -70,9 +70,6 @@ select {
 	border: none;
 	background: transparent;
 }
-p {
-	color: var(--color-parrafos);
-}
 /*=============== UTILIDADES ===============*/
 .container {
 	max-width: 1300px;
