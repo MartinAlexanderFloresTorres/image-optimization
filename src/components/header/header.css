@@ -34,7 +34,7 @@
 }
 .header__herramientas {
 	position: fixed;
-	top: 76px;
+	top: 57px;
 	left: 0;
 	right: 0;
 	border-top: 1px solid var(--color-box-hover);
@@ -43,7 +43,7 @@
 	background: var(--color-box);
 	padding: 20px;
 	transition: var(--transition-3s);
-	max-height: calc(100vmin - 76px);
+	max-height: calc(100vmin - 57px);
 	min-height: max-content;
 	clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 	opacity: 0;
@@ -68,7 +68,7 @@
 	flex: auto;
 }
 .header__herramientas .container ul li h2 {
-	margin-bottom: 5px;
+	margin-bottom: 4px;
 	font-size: 18px;
 }
 .header__herramientas .container ul li {
@@ -78,6 +78,7 @@
 	transition: var(--transition-3s);
 	border-radius: 5px;
 	font-size: 14px;
+	padding: 10px;
 }
 .header__herramientas .container ul li a:hover {
 	background: var(--color-drop-ring);
@@ -148,6 +149,6 @@
 
 @media (max-width: 326px) {
 	.header__herramientas {
-		min-height: calc(100vmax - 76px);
+		min-height: calc(100vmax - 57px);
 	}
 }
