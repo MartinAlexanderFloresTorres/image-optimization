@@ -1,6 +1,5 @@
 .header {
 	padding: 16px 20px;
-	position: sticky;
 	position: fixed;
 	width: 100%;
 	height: fit-content;
@@ -14,17 +13,6 @@
 	border-color: var(--color-box-hover);
 }
 .header__flex {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	column-gap: 10px;
-	-webkit-column-gap: 10px;
-	row-gap: 10px;
-}
-.p-item {
-	padding: 10px;
-}
-.d-flex {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;

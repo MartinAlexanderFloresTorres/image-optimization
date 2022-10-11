@@ -7,18 +7,25 @@ const ImagesProvider = ({ children }) => {
 
 	// Agregar una imagen
 	const addImage = (image) => {
-		setImages([...images, image]);
+		setImages((images) => [...images, image]);
 	};
 
 	// Limpiar las imagenes
 	const clearImages = () => {
 		setImages([]);
 	};
+
+	// quitar una imagen
+	const removeImage = (id) => {
+		setImages(images.filter((image) => image.id !== id));
+	};
 	return (
 		<ImagesContext.Provider
 			value={{
 				addImage,
 				clearImages,
+				removeImage,
+				images,
 			}}
 		>
 			{children}

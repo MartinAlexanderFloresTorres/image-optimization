@@ -10,11 +10,13 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
+		"compressorjs": "^1.1.1",
 		"jszip": "^3.10.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-hot-toast": "^2.4.0",
-		"react-router-dom": "^6.4.2"
+		"react-router-dom": "^6.4.2",
+		"sharp": "^0.31.1"
 	},
 	"devDependencies": {
 		"@types/react": "^18.0.17",
