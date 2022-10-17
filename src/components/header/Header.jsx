@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import './header.css';
 
 const Header = () => {
@@ -547,7 +548,7 @@ const Header = () => {
 				</div>
 
 				<div className='header__right d-flex'>
-					<a href='#' id='login' className='d-flex header__item'>
+					<NavLink to='login' id='login' className='d-flex header__item'>
 						<svg
 							fill='none'
 							stroke='currentColor'
@@ -562,7 +563,7 @@ const Header = () => {
 							/>
 						</svg>
 						<span>Iniciar Sesión</span>
-					</a>
+					</NavLink>
 					<div className='header__cuenta'>
 						<button onClick={handleMenu} className='d-flex'>
 							{/* <svg
@@ -625,7 +626,7 @@ const Header = () => {
 								<span>Configuración</span>
 							</a>
 
-							<a href='#' className='d-flex p-item header__item'>
+							<NavLink to='/login' className='d-flex p-item header__item'>
 								<svg
 									fill='none'
 									stroke='currentColor'
@@ -640,7 +641,7 @@ const Header = () => {
 									/>
 								</svg>
 								<span>Iniciar Sesión</span>
-							</a>
+							</NavLink>
 
 							<button className='d-flex p-item header__item'>
 								<svg

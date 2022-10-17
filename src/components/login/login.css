@@ -1,0 +1,307 @@
+
+::placeholder {
+    color: var(--input-color);
+}
+.login {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    min-height: 100vh;
+}
+
+.wrap {
+    background: #15141b;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+    margin: auto;
+    width: 80%;
+    max-width: 850px;
+    border-radius: 1rem;
+    box-shadow:0px 0px 10px var(--purple);
+}
+
+.wrap .content,
+.wrap .user {
+    display: flex;
+    flex-direction: column;
+    padding: 0 .5rem;
+}
+.wrap .content {
+    background-image: url("http://res.cloudinary.com/dpcloudinary/image/upload/v1506186248/dots.png"), linear-gradient(180deg, var(--purple) 0%, var(--color-box) 100%) ;
+    background-repeat: no-repeat;
+    background-position: center 80%;
+    background-size: contain;
+    border-radius: 1rem 0 0 1rem;
+}
+.wrap .user {
+    border-radius: 0 1rem 1rem 0;
+    background: linear-gradient(180deg, var(--sky) 0%, var(--purple) 100%);
+    height: auto;
+}
+
+.content .logo {
+    z-index: 2;
+    padding: .3rem;
+}
+
+.content .banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 0 1rem;
+    word-break: keep-all;
+}
+
+.banner .one h2 {
+    font-size: 1.7rem;
+    text-transform: uppercase;
+}
+
+.banner .one h2 span {
+    border: solid var(--white);
+    border-width: 1px 0 ;
+    padding: 3px;
+}
+
+.banner .one p {
+    font-size: .9rem;
+    margin: .7rem 0;
+}
+
+
+.user .form-wrap {
+    display: flex;
+    flex-direction: column;
+    margin: 3rem auto;
+}
+
+.user .form-wrap .tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: .3rem;
+}
+.user .form-wrap .tabs h3 {
+    text-transform: uppercase;
+}
+.user .form-wrap .tabs a {
+    cursor: pointer;
+}
+
+.form-wrap .tabs .log-in.active span {
+    border: solid var(--purple);
+    border-width: 0 0 2px 0;
+    padding-bottom: .2rem;
+}
+
+.form-wrap .tabs-content {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 2rem;
+}
+
+.tabs-content .login-tab-content,
+.tabs-content .signup-tab-content {
+    display: none;
+}
+.tabs-content .login-tab-content.active,
+.tabs-content .signup-tab-content.active {
+    display: block;
+}
+
+.tabs-content .login-tab-content .login-form,
+.tabs-content .signup-tab-content .signup-form {
+    padding: 1.5rem .7rem 1rem .7rem;
+    width: 100%;
+}
+
+.login-tab-content .login-form .input,
+.signup-tab-content .signup-form .input {
+    width: 100%;
+    border-bottom: 1px solid var(--input-color);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding: .8rem  1.5rem .8rem 0;
+    margin: 0 0 1.2rem 0;
+    outline: 0;
+}
+
+.login-tab-content .login-form .login-tab-content_checkbox {
+    display: flex;
+    flex-direction: row;
+    padding: .8rem 0;
+}
+
+.login-form .login-tab-content_checkbox .checkbox {
+    text-align: left;
+    visibility: hidden;
+}
+
+.login-tab-content_checkbox .checkbox:checked + label:after {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+}
+
+.login-tab-content_checkbox label[for] {
+    position: relative;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.login-tab-content_checkbox label[for]:before {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 0px;
+    left: -14px;
+    content: '';
+    border: 1px solid var(--input-color);
+}
+
+.login-tab-content_checkbox label[for]:after {
+    position: absolute;
+    top: 1px;
+    left: -10px;
+    width: 15px;
+    height: 8px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    content: '';
+    background-color: transparent;
+    border: solid var(--sky);
+    border-width: 0 0 3px 3px;
+    transform: rotate(-45deg);
+}
+
+.button {
+    display: inline-block;
+    width: 100%;
+    background: var(--sky);
+    border-radius: 1rem;
+    padding: .7rem 1.2rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+.help-action .forgot,
+.help-action .terms {
+    font-size: 1rem;
+}
+
+.help-action .help-text {
+    padding-left: 35px;
+}
+
+.help-action svg {
+    margin-right: 0;
+}
+
+.login-tab-content .social-login ul {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+    gap: .5rem;
+}
+
+.social-login ul .social-login_item {
+    display: flex;
+    background: var(--white);
+    width: 100%;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.16) ;
+}
+.social-login ul .social-login_item:nth-child(2) {
+    background: #000;
+}
+.social-login ul .social-login_item:nth-child(3) {
+    background: #039be5;
+}
+
+.social-login ul .social-login_item a {
+    padding-top: 5px;
+}
+.social-login ul .social-login_item:nth-child(3) a {
+    padding-top: 2px;
+}
+
+.social-login ul .social-login_item a svg {
+    height: 30px;
+    width: 30px;
+}
+.button-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+    padding-top: 1.5rem;
+    text-align: end;
+    font-size: .8rem;
+    color: var(--input-color);
+}
+
+@media (max-width: 768px) {
+    .wrap {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .wrap .content {
+        border-radius: 1rem 1rem 0 0;
+    }
+
+    .wrap .user {
+        border-radius: 0 0 1rem 1rem;
+    }
+
+    .content {
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: baseline;
+    }
+    .content .banner {
+        padding: 0;
+        width: auto;
+    }
+    .banner .one h2{
+        font-size: 1rem;
+    }
+    .banner .one p {
+        display: none;
+    }
+
+    
+}
+
+@media (max-width: 375px) {
+    
+    .user .form-wrap .tabs h3 {
+        font-size: 1rem;
+    }
+    .help-action {
+        text-align: center;
+    }
+    .help-action svg {
+        display: none;
+    }
+
+    .help-action .help-text {
+        text-align: start;
+        padding-left: 23px;
+        font-size: .6rem;
+    }
+
+}
+
