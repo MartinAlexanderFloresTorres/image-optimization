@@ -90,7 +90,9 @@
     text-transform: uppercase;
 }
 .user .form-wrap .tabs a {
+    color: var(--white);
     cursor: pointer;
+    transition: color .3s ease-in-out;
 }
 
 .form-wrap .tabs .log-in.active span {
@@ -103,6 +105,9 @@
     display: flex;
     flex-direction: column;
     padding: 1.5rem 2rem;
+}
+.form-wrap .tabs a:hover {
+    color: var(--purple);
 }
 
 .tabs-content .login-tab-content,
@@ -188,6 +193,11 @@
     padding: .7rem 1.2rem;
     margin-top: 1rem;
     font-size: 1rem;
+    transition: all .3s ease-in-out;
+}
+.button:hover {
+    background: linear-gradient(45deg, var(--purple) 0%, var(--sky) 100%);
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.16);
 }
 
 .help-action .forgot,
@@ -219,20 +229,24 @@
     justify-content: center;
     align-items: center;
     border-radius: 1rem;
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.16) ;
+    transition: background .3s ease-in-out;
+    
 }
 .social-login ul .social-login_item:nth-child(2) {
-    background: #000;
+    background: rgb(22, 22, 22);
 }
 .social-login ul .social-login_item:nth-child(3) {
     background: #039be5;
 }
 
 .social-login ul .social-login_item a {
+    width: 100%;
+    text-align: center;
     padding-top: 5px;
 }
-.social-login ul .social-login_item:nth-child(3) a {
-    padding-top: 2px;
+.social-login ul .social-login_item:hover {
+    background: linear-gradient(45deg, var(--purple) 0%, var(--sky) 100%);
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.16);
 }
 
 .social-login ul .social-login_item a svg {
