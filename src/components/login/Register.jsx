@@ -1,17 +1,17 @@
 import React from 'react';
-import FormLogin from './FormLogin';
+import FormRegister from './FormRegister';
 import Tabs from './Tabs';
 
-const Login = () => {
+const Register = () => {
 	return (
 		<div className='user'>
 			<div className='form-wrap'>
 				<Tabs />
 
-				<FormLogin />
+				<FormRegister />
 			</div>
 		</div>
 	);
 };
 
-export default Login;
+export default Register;

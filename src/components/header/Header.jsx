@@ -548,7 +548,7 @@ const Header = () => {
 				</div>
 
 				<div className='header__right d-flex'>
-					<NavLink to='login' id='login' className='d-flex header__item'>
+					<NavLink to='/login' id='login' className='d-flex header__item'>
 						<svg
 							fill='none'
 							stroke='currentColor'
@@ -626,7 +626,7 @@ const Header = () => {
 								<span>Configuración</span>
 							</a>
 
-							<NavLink to='/login' className='d-flex p-item header__item'>
+							<NavLink to='login' className='d-flex p-item header__item'>
 								<svg
 									fill='none'
 									stroke='currentColor'
