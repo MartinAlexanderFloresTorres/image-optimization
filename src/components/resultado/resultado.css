@@ -1,10 +1,11 @@
 /*Cuadro que engloba todo el archivo*/
+.resultado{
+	padding: 20px;
+	padding-top: 100px;
+}
 .cuadro_completo {
-	width: 50%;
-	margin: 50px auto;
-	padding: 10px;
-	position: relative;
-	background: var(--color-box);
+	max-width: 600px;
+	margin: 0 auto;
 }
 #titulo_cuadro {
 	padding: 10px;

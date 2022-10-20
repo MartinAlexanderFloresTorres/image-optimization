@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './header.css';
 
 const Header = () => {
@@ -68,8 +69,8 @@ const Header = () => {
 		<header className={`header ${herramientas || header ? 'bg' : ''}`}>
 			<section className='header__flex container'>
 				<div className='d-flex'>
-					<a
-						href='#'
+					<Link
+						to={'/'}
 						className='header__logo d-flex'
 						title='Optimization images'
 					>
@@ -118,7 +119,7 @@ const Header = () => {
 								></path>
 							</g>
 						</svg>
-					</a>
+					</Link>
 					<section className='header__center'>
 						<button
 							id='btn-herramientas'

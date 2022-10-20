@@ -1,82 +1,13 @@
-import { useState } from 'react';
 import Compressor from 'compressorjs';
-import toast from 'react-hot-toast';
 import useImages from '../../hooks/useImages';
+import ButtonLoader from '../botones/ButtonLoader';
 import Item from './Item';
 import './lista.css';
 
-const defaulState = {
-	quality: 0.8,
-	width: '',
-	height: '',
-	resize: 'none',
-	mimeType: 'image/webp',
-};
-
 const Lista = () => {
-	// Estados
-	const [ajuste, setAjuste] = useState(defaulState);
-
 	// useImagenes
-	const { images, clearImages } = useImages();
+	const { handleConfig, ajuste, images, loading, uploadImages } = useImages();
 
-	// llenar la configuracion
-	const handleConfig = (e) => {
-		const { name, value } = e.target;
-		setAjuste({ ...ajuste, [name]: value });
-	};
-
-	// Function para descargar la imagen
-	const download = async (url, name) => {
-		const a = document.createElement('a');
-		a.href = url;
-		a.download = name;
-		document.body.appendChild(a);
-		a.click();
-		document.body.removeChild(a);
-	};
-
-	// handleOptimize
-	const handleOptimize = async (files) => {
-		// Recorrer los files
-		files.forEach((file) => {
-			console.log(Number(ajuste.height) || undefined);
-			console.log(Number(ajuste.width) || undefined);
-			console.log(parseFloat(ajuste.quality));
-			console.log(ajuste.resize);
-			console.log(ajuste.mimeType);
-
-			new Compressor(file, {
-				quality: parseFloat(ajuste.quality),
-				height: Number(ajuste.height) || undefined,
-				width: Number(ajuste.width) || undefined,
-				convertSize: Infinity,
-				mimeType: ajuste.mimeType,
-				resize: ajuste.resize,
-
-				success(result) {
-					// Crear url para descargar
-					const url = URL.createObjectURL(result);
-					// Descargar el archivo
-					(async () => {
-						await download(url, result.name);
-						URL.revokeObjectURL(url);
-					})();
-
-					// Resert las imagenes
-					clearImages();
-					// Resetear el ajuste
-					setAjuste(defaulState);
-
-					// Mostrar mensaje
-					toast.success('Imagenes optimizadas con exito');
-				},
-				error(e) {
-					console.log(e.message);
-				},
-			});
-		});
-	};
 	return (
 		<section className='container'>
 			{images.length > 0 && (
@@ -87,25 +18,9 @@ const Lista = () => {
 						))}
 					</div>
 
-					<button
-						className='btn_primary btn_primary--padding'
-						onClick={() => handleOptimize(images)}
-					>
-						<span>Empezar</span>
-						<svg
-							fill='none'
-							stroke='currentColor'
-							viewBox='0 0 24 24'
-							xmlns='http://www.w3.org/2000/svg'
-						>
-							<path
-								strokeLinecap='round'
-								strokeLinejoin='round'
-								strokeWidth={2}
-								d='M9 5l7 7-7 7'
-							/>
-						</svg>
-					</button>
+					<ButtonLoader estado={loading} onClick={uploadImages}>
+						{loading ? 'Subiendo...' : 'Empezar'}
+					</ButtonLoader>
 
 					<section className='ajustes'>
 						<div className='ajustes-card'>
@@ -173,8 +88,8 @@ const Lista = () => {
 									name='quality'
 									type='range'
 									min='0'
-									max='1'
-									step='0.1'
+									max='100'
+									step='10'
 									value={ajuste.quality}
 									onChange={handleConfig}
 									title='selecciona la calidad de imagen'
@@ -225,7 +140,7 @@ const Lista = () => {
 											id='width'
 											placeholder='1-6000'
 											name='width'
-											value={ajuste.width}
+											value={ajuste.width > 0 ? ajuste.width : ''}
 											onChange={handleConfig}
 										/>
 										<span>px</span>
@@ -239,7 +154,7 @@ const Lista = () => {
 											id='height'
 											placeholder='1-6000'
 											name='height'
-											value={ajuste.height}
+											value={ajuste.height > 0 ? ajuste.height : ''}
 											onChange={handleConfig}
 										/>
 										<span>px</span>
@@ -270,20 +185,6 @@ const Lista = () => {
 							<div className='resize__center'>
 								<h2>Redimensiona tu imagen</h2>
 								<div className='resize__grid'>
-									<label htmlFor='none'>
-										<div>
-											<input
-												type='radio'
-												name='resize'
-												id='none'
-												value='none'
-												checked={ajuste.resize === 'none'}
-												onChange={handleConfig}
-											/>
-										</div>
-										<span>Auto</span>
-									</label>
-
 									<label htmlFor='cover'>
 										<div>
 											<input
@@ -310,6 +211,48 @@ const Lista = () => {
 											/>
 										</div>
 										<span>Contain</span>
+									</label>
+
+									<label htmlFor='fill'>
+										<div>
+											<input
+												type='radio'
+												name='resize'
+												id='fill'
+												value='fill'
+												checked={ajuste.resize === 'fill'}
+												onChange={handleConfig}
+											/>
+										</div>
+										<span>Fill</span>
+									</label>
+
+									<label htmlFor='inside'>
+										<div>
+											<input
+												type='radio'
+												name='resize'
+												id='inside'
+												value='inside'
+												checked={ajuste.resize === 'inside'}
+												onChange={handleConfig}
+											/>
+										</div>
+										<span>Inside</span>
+									</label>
+
+									<label htmlFor='outside'>
+										<div>
+											<input
+												type='radio'
+												name='resize'
+												id='outside'
+												value='outside'
+												checked={ajuste.resize === 'outside'}
+												onChange={handleConfig}
+											/>
+										</div>
+										<span>Outside</span>
 									</label>
 								</div>
 							</div>
@@ -339,99 +282,82 @@ const Lista = () => {
 							<div className='formato__center'>
 								<h2>Formato tu imagen</h2>
 								<div className='formato__grid'>
-									<label htmlFor='image/jpg'>
+									<label htmlFor='jpg'>
 										<div>
 											<input
 												type='radio'
 												name='mimeType'
-												id='image/jpg'
-												value='image/jpg'
-												checked={ajuste.mimeType === 'image/jpg'}
+												id='jpg'
+												value='jpg'
+												checked={ajuste.mimeType === 'jpg'}
 												onChange={handleConfig}
 											/>
 										</div>
 										<span>jpg</span>
 									</label>
 
-									<label htmlFor='image/jpeg'>
+									<label htmlFor='jpeg'>
 										<div>
 											<input
 												type='radio'
 												name='mimeType'
-												id='image/jpeg'
-												value='image/jpeg'
-												checked={ajuste.mimeType === 'image/jpeg'}
+												id='jpeg'
+												value='jpeg'
+												checked={ajuste.mimeType === 'jpeg'}
 												onChange={handleConfig}
 											/>
 										</div>
 										<span>jpeg</span>
 									</label>
 
-									{/* 									<label htmlFor='image/avif'>
+									<label htmlFor='png'>
 										<div>
 											<input
 												type='radio'
 												name='mimeType'
-												id='image/avif'
-												value='image/avif'
-												checked={ajuste.mimeType === 'image/avif'}
-												onChange={handleConfig}
-											/>
-										</div>
-										<span>avif</span>
-									</label> */}
-
-									<label htmlFor='image/png'>
-										<div>
-											<input
-												type='radio'
-												name='mimeType'
-												id='image/png'
-												value='image/png'
-												checked={ajuste.mimeType === 'image/png'}
+												id='png'
+												value='png'
+												checked={ajuste.mimeType === 'png'}
 												onChange={handleConfig}
 											/>
 										</div>
 										<span>png</span>
 									</label>
 
-									<label htmlFor='image/webp'>
+									<label htmlFor='webp'>
 										<div>
 											<input
 												type='radio'
 												name='mimeType'
-												id='image/webp'
-												value='image/webp'
-												checked={ajuste.mimeType === 'image/webp'}
+												id='webp'
+												value='webp'
+												checked={ajuste.mimeType === 'webp'}
 												onChange={handleConfig}
 											/>
 										</div>
 										<span>webp</span>
 									</label>
+
+									<label htmlFor='avif'>
+										<div>
+											<input
+												type='radio'
+												name='mimeType'
+												id='avif'
+												value='avif'
+												checked={ajuste.mimeType === 'avif'}
+												onChange={handleConfig}
+											/>
+										</div>
+										<span>avif</span>
+									</label>
 								</div>
 							</div>
 						</div>
 					</section>
-
-					<button
-						className='btn_primary btn_primary--padding'
-						onClick={() => handleOptimize(images)}
-					>
-						<span>Empezar</span>
-						<svg
-							fill='none'
-							stroke='currentColor'
-							viewBox='0 0 24 24'
-							xmlns='http://www.w3.org/2000/svg'
-						>
-							<path
-								strokeLinecap='round'
-								strokeLinejoin='round'
-								strokeWidth={2}
-								d='M9 5l7 7-7 7'
-							/>
-						</svg>
-					</button>
+					<ButtonLoader estado={loading} onClick={uploadImages}>
+						{loading ? 'Subiendo...' : 'Empezar'}
+					</ButtonLoader>
 				</section>
 			)}
 		</section>
