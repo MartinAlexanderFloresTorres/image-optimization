@@ -41,6 +41,22 @@ const ImagesProvider = ({ children }) => {
 			return;
 		}
 
+		// Validar formato de la imagen
+		const formatos = [
+			'image/jpeg',
+			'image/jpg',
+			'image/png',
+			'image/webp',
+			'image/svg+xml',
+		];
+
+		console.log(image);
+
+		if (!formatos.includes(image.type)) {
+			toast.error(`Formato no permitido ${image.name}`);
+			return;
+		}
+
 		// Agregar la imagen al estado
 		setImages((images) => [...images, image]);
 	};
@@ -111,7 +127,9 @@ const ImagesProvider = ({ children }) => {
 			});
 			navigate('/downloads');
 		} catch (error) {
-			console.log(error.message);
+			const e = error?.response?.data?.msg;
+			toast.error(e);
+			console.log(e);
 		}
 		// Resetear el estado
 		setLoading(false);

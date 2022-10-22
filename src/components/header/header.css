@@ -24,6 +24,12 @@
 .header__logo {
 	margin-right: 10px;
 }
+.header__logo img {
+	width: 40px;
+	height: 40px;
+	object-fit: contain;
+	animation: rotate-logo 1.5s linear infinite;
+}
 .header__center {
 	width: 100%;
 }
@@ -35,7 +41,7 @@
 }
 .header__herramientas {
 	position: fixed;
-	top: 57px;
+	top: 72px;
 	left: 0;
 	right: 0;
 	border-top: 1px solid var(--color-box-hover);
@@ -44,7 +50,7 @@
 	background: var(--color-box);
 	padding: 20px;
 	transition: var(--transition-3s);
-	max-height: calc(100vmin - 57px);
+	max-height: calc(100vmin - 72px);
 	min-height: max-content;
 	clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 	opacity: 0;
@@ -150,6 +156,6 @@
 
 @media (max-width: 326px) {
 	.header__herramientas {
-		min-height: calc(100vmax - 57px);
+		min-height: calc(100vmax - 72px);
 	}
 }

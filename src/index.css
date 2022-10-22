@@ -73,8 +73,8 @@ select {
 	border: none;
 	background: transparent;
 }
-main{
-	min-height: calc(100vh - 454px);
+main {
+	min-height: calc(100vh - 300px);
 }
 /*=============== UTILIDADES ===============*/
 .container {
@@ -136,17 +136,17 @@ main{
 .btn_primary:hover {
 	background: linear-gradient(to top, #2563eb, #2563eb);
 }
-.btn_primary:disabled{
+.btn_primary:disabled {
 	opacity: 0.5;
 	cursor: not-allowed;
 }
-.btn_primary:disabled:hover{
+.btn_primary:disabled:hover {
 	background: linear-gradient(to top, #2563eb, #60a5fa);
 }
-.btn_primary:disabled:active{
+.btn_primary:disabled:active {
 	transform: scale(1);
 }
-.svg-rotar-loader{
+.svg-rotar-loader {
 	animation: rotar-loader 1.2s linear infinite;
 }
 .btn__error {
@@ -178,25 +178,25 @@ main{
 .btn__error:hover {
 	background: linear-gradient(to top, var(--red), var(--red));
 }
-.btn__error:disabled{
+.btn__error:disabled {
 	opacity: 0.5;
 	cursor: not-allowed;
 }
-.btn__error:disabled:hover{
+.btn__error:disabled:hover {
 	background: linear-gradient(to top, var(--red), var--red-hover(--));
 }
-.btn__error:disabled:active{
+.btn__error:disabled:active {
 	transform: scale(1);
 }
-@keyframes rotar-loader{
-	0%{
+@keyframes rotar-loader {
+	0% {
 		transform: rotate(0deg);
 	}
-	100%{
+	100% {
 		transform: rotate(360deg);
 	}
 }
-.btn-border{
+.btn-border {
 	border-radius: 50px;
 	min-width: 45px;
 	min-height: 45px;
@@ -208,25 +208,25 @@ main{
 	text-align: center;
 	transition: var(--transition-3s);
 }
-.btn-border:hover{
+.btn-border:hover {
 	background: var(--color-box-hover);
 }
-.btn-border:active{
+.btn-border:active {
 	transform: scale(0.95);
 	background: var(--border-color-1);
 }
-.titulo-top{
+.titulo-top {
 	font-size: 18px;
 	font-weight: 700;
 	margin-bottom: 20px;
 	letter-spacing: 1px;
 }
-.titulo-top span{
+.titulo-top span {
 	font-size: 20px;
 	font-weight: 800;
 	color: var(--sky);
 }
-.encabezado{
+.encabezado {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -236,7 +236,7 @@ main{
 	flex-wrap: wrap;
 	margin-bottom: 20px;
 }
-.encabezado .titulo-top{
+.encabezado .titulo-top {
 	margin-bottom: 0;
 }
 /*=============== CLASES TOAST ===============*/
@@ -246,35 +246,12 @@ main{
 	color: var(--white);
 	font-size: 14px;
 }
-.go2072408551 p {
-	color: currentColor;
-}
-.toast-warning {
-	font-size: 14px;
-}
-.btn-error {
-	float: right;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	column-gap: 10px;
-	-webkit-column-gap: 10px;
-	color: var(--white);
-	background: var(--btn-toast);
-	padding: 10px;
-	border-radius: 5px;
-	margin-left: auto;
-	font-size: 14px;
-	font-weight: 400;
-	border: 1px solid var(--color-box-hover);
-	transition: var(--transition-3s);
-	min-width: fit-content;
-}
-.toast-warning p {
-	margin-bottom: 10px;
-	color: var(--drop-color-svg-no-valid);
-	font-size: 14px;
-}
-.btn-error:hover {
-	background: var(--btn-toast-hover);
+/*=============== rotate logo ===============*/
+@keyframes rotate-logo {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
