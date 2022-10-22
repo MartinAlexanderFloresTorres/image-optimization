@@ -1,67 +1,33 @@
-.contenido_completo {
-	margin: 20px auto;
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.resultado{
+	padding: 20px;
 }
-.contenido_completo h3 {
-	margin: 10px auto;
-	width: 50%;
-	height: 40px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: white;
-	/* color: aliceblue; */
-	border: 3px solid white;
-}
-
-.tabla_button {
-	position: absolute;
-	top: 34px;
-	width: 50%;
-	border: 3px solid white;
-	color: white;
-}
-.cuadro_3botones {
-	position: absolute;
-	top: 96px;
-	color: white;
-	width: 50%;
-	border: 3px solid white;
-}
-.cuadro_ultimoBotones {
-	position: absolute;
-	color: white;
-	top: 225px;
-	width: 50%;
-	border: 3px solid white;
-}
-
-.cuadro_completo {
-	height: 20px;
-}
-.Entrada_QR {
-	column-gap: 10px;
-	row-gap: 10px;
-	flex-wrap: wrap;
-	display: flex;
-	justify-content: center;
-	max-width: 400px;
+.resultado__botones{
+	max-width: 600px;
 	margin-left: auto;
-	align-items: center;
+	display: flex;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	column-gap: 10px;
+	-webkit-column-gap: 10px;
+	row-gap: 10px;
 }
-
-.izquierda {
-	display: inline-block;
-	width: 350px;
-	margin: 0px 5px;
-	min-height: 40px;
-	border-right: 3px solid white;
+.resultado__botones svg path{
+	stroke: currentColor;
 }
-.derecha {
-	display: inline-block;
-	width: auto;
-	margin: 0px 10px;
+.resultado__ups div{
+	min-height: 100vh;
+	background-image: url("/svg/ups.svg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.resultado__ups p{
+	font-size: 14px;
+	text-transform: uppercase;
+	text-align: center;
+	width: 100%;
+	padding: 20px;
+	background: var(--btn-toast);
+	border: 1px solid var(--border-color-1);
+	border-radius: 5px;
 }
