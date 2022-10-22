@@ -1,6 +1,7 @@
 .header {
 	padding: 16px 20px;
-	position: fixed;
+	position: sticky;
+	top: 0;
 	width: 100%;
 	height: fit-content;
 	z-index: 10;

@@ -112,6 +112,7 @@
 }
 .footer__navigation .container ul {
 	min-width: fit-content;
+	word-break: break-all;
 }
 .footer__navigation .container ul li {
 	min-width: fit-content;

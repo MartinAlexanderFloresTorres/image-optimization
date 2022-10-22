@@ -1,6 +1,7 @@
 /*=============== DR0P ===============*/
 .drop-overflow {
 	overflow: hidden;
+	margin-top: -60px;
 }
 .drop {
 	text-align: center;
@@ -10,7 +11,8 @@
 	column-gap: 30px;
 	-webkit-column-gap: 30px;
 	row-gap: 30px;
-	min-height: 100vh;
+	height: 100vh;
+	min-height: 780px;
 	width: 100%;
 	margin: 0 auto;
 	position: relative;
