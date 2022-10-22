@@ -17,26 +17,7 @@ const Drop = () => {
 	const warning = (message) => {
 		// Mostrar mensaje de warning
 		setNoValid(true);
-		toast(
-			(e) => (
-				<div className='toast-warning'>
-					<p>{message}</p>
-					<button
-						onClick={() => {
-							toast.dismiss(e.id);
-							setNoValid(false);
-						}}
-						className='btn-error'
-					>
-						Cerrar
-					</button>
-				</div>
-			),
-			{
-				duration: 3000,
-				position: 'top-center',
-			}
-		);
+		toast.error(message);
 	};
 
 	// Function que agregara la imagen al state
